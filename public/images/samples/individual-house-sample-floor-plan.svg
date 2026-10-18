@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" font-family="DM Sans, Arial, sans-serif">
+<rect width="1280" height="900" fill="#ffffff"/>
+<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#000b6b" stroke-opacity=".12" stroke-width="3"/></pattern></defs>
+<text x="330" y="120" text-anchor="middle" font-size="22" font-weight="700" fill="#000b6b" letter-spacing="3">GROUND FLOOR</text>
+<rect x="130" y="150" width="400" height="600" fill="url(#hatch)" stroke="#000b6b" stroke-width="10"/>
+<rect x="130" y="150" width="240" height="220" fill="#ffffff" stroke="#000b6b" stroke-width="4"/>
+<text x="250.0" y="256.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">LIVING</text>
+<text x="250.0" y="276.0" text-anchor="middle" font-size="12" fill="#6b7280">16'0" x 14'6"</text>
+<rect x="370" y="150" width="160" height="220" fill="#f6f7f9" stroke="#000b6b" stroke-width="4"/>
+<text x="450.0" y="256.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">DINING</text>
+<text x="450.0" y="276.0" text-anchor="middle" font-size="12" fill="#6b7280">11'0" x 14'6"</text>
+<rect x="130" y="370" width="160" height="170" fill="#ffffff" stroke="#000b6b" stroke-width="4"/>
+<text x="210.0" y="451.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">BEDROOM 1</text>
+<text x="210.0" y="471.0" text-anchor="middle" font-size="12" fill="#6b7280">11'0" x 11'6"</text>
+<rect x="290" y="370" width="120" height="170" fill="#fff3ee" stroke="#000b6b" stroke-width="4"/>
+<text x="350.0" y="451.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">KITCHEN</text>
+<text x="350.0" y="471.0" text-anchor="middle" font-size="12" fill="#6b7280">8'6" x 11'6"</text>
+<rect x="410" y="370" width="120" height="90" fill="#f6f7f9" stroke="#000b6b" stroke-width="4"/>
+<text x="470.0" y="411.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">TOILET</text>
+<text x="470.0" y="431.0" text-anchor="middle" font-size="12" fill="#6b7280">6'0" x 5'6"</text>
+<rect x="410" y="460" width="120" height="80" fill="#f6f7f9" stroke="#000b6b" stroke-width="4"/>
+<text x="470.0" y="496.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">STAIRS</text>
+<text x="470.0" y="516.0" text-anchor="middle" font-size="12" fill="#6b7280"></text>
+<rect x="130" y="540" width="400" height="210" fill="#f6f7f9" stroke="#000b6b" stroke-width="4"/>
+<text x="330.0" y="641.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">CAR PARKING</text>
+<text x="330.0" y="661.0" text-anchor="middle" font-size="12" fill="#6b7280">26'6" x 13'6"</text>
+<g transform="translate(370 210) rotate(90)"><line x1="0" y1="0" x2="40" y2="0" stroke="#fd4112" stroke-width="3"/><path d="M 40 0 A 40 40 0 0 1 0 40" fill="none" stroke="#fd4112" stroke-width="1.5" stroke-dasharray="4 3"/></g>
+<g transform="translate(290 400) rotate(0)"><line x1="0" y1="0" x2="36" y2="0" stroke="#fd4112" stroke-width="3"/><path d="M 36 0 A 36 36 0 0 1 0 36" fill="none" stroke="#fd4112" stroke-width="1.5" stroke-dasharray="4 3"/></g>
+<g transform="translate(190 370) rotate(0)"><line x1="0" y1="0" x2="36" y2="0" stroke="#fd4112" stroke-width="3"/><path d="M 36 0 A 36 36 0 0 1 0 36" fill="none" stroke="#fd4112" stroke-width="1.5" stroke-dasharray="4 3"/></g>
+<g transform="translate(430 370) rotate(0)"><line x1="0" y1="0" x2="32" y2="0" stroke="#fd4112" stroke-width="3"/><path d="M 32 0 A 32 32 0 0 1 0 32" fill="none" stroke="#fd4112" stroke-width="1.5" stroke-dasharray="4 3"/></g>
+<text x="950" y="120" text-anchor="middle" font-size="22" font-weight="700" fill="#000b6b" letter-spacing="3">FIRST FLOOR</text>
+<rect x="750" y="150" width="400" height="600" fill="url(#hatch)" stroke="#000b6b" stroke-width="10"/>
+<rect x="750" y="150" width="220" height="220" fill="#ffffff" stroke="#000b6b" stroke-width="4"/>
+<text x="860.0" y="256.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">MASTER BEDROOM</text>
+<text x="860.0" y="276.0" text-anchor="middle" font-size="12" fill="#6b7280">14'6" x 14'6"</text>
+<rect x="970" y="150" width="180" height="120" fill="#f6f7f9" stroke="#000b6b" stroke-width="4"/>
+<text x="1060.0" y="206.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">TOILET</text>
+<text x="1060.0" y="226.0" text-anchor="middle" font-size="12" fill="#6b7280">11'0" x 7'6"</text>
+<rect x="970" y="270" width="180" height="100" fill="#f6f7f9" stroke="#000b6b" stroke-width="4"/>
+<text x="1060.0" y="316.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">DRESS</text>
+<text x="1060.0" y="336.0" text-anchor="middle" font-size="12" fill="#6b7280">11'0" x 6'6"</text>
+<rect x="750" y="370" width="180" height="180" fill="#ffffff" stroke="#000b6b" stroke-width="4"/>
+<text x="840.0" y="456.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">BEDROOM 2</text>
+<text x="840.0" y="476.0" text-anchor="middle" font-size="12" fill="#6b7280">12'0" x 12'0"</text>
+<rect x="930" y="370" width="100" height="90" fill="#f6f7f9" stroke="#000b6b" stroke-width="4"/>
+<text x="980.0" y="411.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">TOILET</text>
+<text x="980.0" y="431.0" text-anchor="middle" font-size="12" fill="#6b7280">6'0" x 6'0"</text>
+<rect x="1030" y="370" width="120" height="180" fill="#f6f7f9" stroke="#000b6b" stroke-width="4"/>
+<text x="1090.0" y="456.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">STAIRS</text>
+<text x="1090.0" y="476.0" text-anchor="middle" font-size="12" fill="#6b7280"></text>
+<rect x="930" y="460" width="100" height="90" fill="#fff3ee" stroke="#000b6b" stroke-width="4"/>
+<text x="980.0" y="501.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">UTILITY</text>
+<text x="980.0" y="521.0" text-anchor="middle" font-size="12" fill="#6b7280"></text>
+<rect x="750" y="550" width="400" height="200" fill="#ffffff" stroke="#000b6b" stroke-width="4"/>
+<text x="950.0" y="646.0" text-anchor="middle" font-size="15" font-weight="700" fill="#000b6b">FAMILY LOUNGE + BALCONY</text>
+<text x="950.0" y="666.0" text-anchor="middle" font-size="12" fill="#6b7280">26'6" x 13'0"</text>
+<g transform="translate(970 300) rotate(90)"><line x1="0" y1="0" x2="36" y2="0" stroke="#fd4112" stroke-width="3"/><path d="M 36 0 A 36 36 0 0 1 0 36" fill="none" stroke="#fd4112" stroke-width="1.5" stroke-dasharray="4 3"/></g>
+<g transform="translate(810 370) rotate(0)"><line x1="0" y1="0" x2="36" y2="0" stroke="#fd4112" stroke-width="3"/><path d="M 36 0 A 36 36 0 0 1 0 36" fill="none" stroke="#fd4112" stroke-width="1.5" stroke-dasharray="4 3"/></g>
+<g transform="translate(950 370) rotate(0)"><line x1="0" y1="0" x2="30" y2="0" stroke="#fd4112" stroke-width="3"/><path d="M 30 0 A 30 30 0 0 1 0 30" fill="none" stroke="#fd4112" stroke-width="1.5" stroke-dasharray="4 3"/></g>
+<text x="640" y="830" text-anchor="middle" font-size="14" fill="#6b7280">Indicative layout for illustration only. Not to scale.</text>
+<g transform="translate(1180 90)"><circle r="26" fill="none" stroke="#000b6b" stroke-width="2"/><path d="M0 -20 L8 8 L0 2 L-8 8 Z" fill="#fd4112"/><text y="-32" text-anchor="middle" font-size="14" font-weight="700" fill="#000b6b">N</text></g>
+</svg>
