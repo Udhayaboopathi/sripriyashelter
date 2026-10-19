@@ -36,3 +36,14 @@ Container widths follow the reference's Bootstrap grid (540/720/960/1140/1320 at
 | Testimonials | 2×2 | 2×2 | 1 column |
 | Company / Contact split | image + text | stacked | stacked; contact image hidden |
 | Ongoing projects | 2 columns | 2 columns | 1 column |
+
+## Responsive pass (19 Oct 2026)
+See `responsive-report.md`. In short:
+- 15 widths × 7 routes are tested automatically (`e2e/responsive.spec.ts`).
+- Fluid `clamp()` headings.
+- 44 px targets throughout.
+- 320 px header and approvals fixes.
+- Shorts counter below 430 px.
+- Swipe on the sliders.
+- Focus traps on all modals.
+- Proportional scaling at 2560 and 3440 (`zoom`), with full-bleed sections kept full-bleed.

@@ -56,7 +56,7 @@ export function LandingHeading({ eyebrow, title, description, tone = "light", al
       <SplitTitle
         title={title}
         breakAccent={breakAccent}
-        className={cn("text-[32px] font-extrabold leading-[1.2] sm:text-[40px] lg:text-[48px]", tone === "light" ? "text-navy" : "text-white", center && "mx-auto max-w-[900px]")}
+        className={cn("text-[clamp(1.75rem,2.6vw+1.1rem,3rem)] font-extrabold leading-[1.2]", tone === "light" ? "text-navy" : "text-white", center && "mx-auto max-w-[900px]")}
       />
       {description ? (
         <Reveal delay={0.5}>

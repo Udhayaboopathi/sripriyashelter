@@ -4,6 +4,7 @@ import type { HeroContent } from "@/types/landing";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { EnquiryTrigger } from "@/components/layout/EnquiryProvider";
+import { cn } from "@/lib/cn";
 
 /**
  * Reference hero banner: full-bleed promotional banner directly under the fixed
@@ -19,9 +20,9 @@ export function LandingHero({ hero, project, exploreHref = "#overview" }: { hero
         <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_60%_at_85%_20%,hsl(12_98%_53%/0.28),transparent_70%)]" />
 
         <div className="container-site relative flex h-full flex-col justify-center pb-[120px] pt-8 lg:pb-[110px]">
-          <div className="max-w-[640px] motion-safe:animate-[fadeUp_0.9s_var(--ease-standard)_both]">
+          <div className={cn("max-w-[640px] pr-8 motion-safe:animate-[fadeUp_0.9s_var(--ease-standard)_both] lg:pr-0", hero.priceTag && "md:max-w-[calc(100%-250px)] lg:max-w-[640px]")} data-testid="hero-copy">
             <Eyebrow tone="dark">{hero.eyebrow}</Eyebrow>
-            <h1 className="mt-5 font-heading text-[40px] font-extrabold leading-[1.08] text-white xs:text-[46px] sm:text-[60px] lg:text-[72px]">
+            <h1 className="mt-5 font-heading text-[clamp(2.125rem,5.4vw+1rem,4.5rem)] font-extrabold leading-[1.08] text-white">
               {hero.title.lead} <span className="text-brand">{hero.title.accent}</span>
             </h1>
             <p className="mt-5 max-w-[520px] text-[16px] leading-relaxed text-white/85 sm:text-[18px]">{hero.subtitle}</p>
@@ -35,7 +36,7 @@ export function LandingHero({ hero, project, exploreHref = "#overview" }: { hero
         </div>
 
         {hero.priceTag ? (
-          <div className="absolute right-[6%] top-[9%] hidden motion-safe:animate-[fadeUp_1.1s_var(--ease-standard)_0.2s_both] md:block lg:right-[9%]">
+          <div data-testid="hero-price" className="absolute right-[6%] top-[9%] hidden motion-safe:animate-[fadeUp_1.1s_var(--ease-standard)_0.2s_both] md:block lg:right-[9%]">
             <div className="relative grid size-[210px] place-items-center rounded-full bg-brand text-center text-white shadow-[0_20px_50px_hsl(12_98%_40%/0.45)] ring-[10px] ring-white/15 lg:size-[240px]">
               <div className="px-6">
                 <p className="text-[12px] font-bold uppercase tracking-[2px] text-white/90">{hero.priceTag.kicker}</p>
@@ -61,8 +62,8 @@ export function LandingHero({ hero, project, exploreHref = "#overview" }: { hero
           <dl className="container-site grid grid-cols-2 gap-y-3 py-4 sm:grid-cols-4 sm:divide-x sm:divide-white/50 sm:py-6">
             {hero.stats.map((st) => (
               <div key={st.label} className="flex items-center justify-center gap-2 px-2 text-center sm:gap-3">
-                <dd className="font-heading text-[26px] font-extrabold leading-none text-white sm:text-[38px] lg:text-[44px]">{st.value}</dd>
-                <dt className="max-w-[90px] text-left text-[10px] font-bold uppercase leading-tight tracking-[1.5px] text-white sm:text-[12px]">{st.label}</dt>
+                <dd className="font-heading text-[clamp(1.5rem,2.6vw+0.9rem,2.75rem)] font-extrabold leading-none text-white">{st.value}</dd>
+                <dt className="max-w-[90px] text-left text-[11px] font-bold uppercase leading-tight tracking-[1.5px] text-white sm:text-[12px]">{st.label}</dt>
               </div>
             ))}
           </dl>

@@ -20,7 +20,7 @@ npm run dev                  # http://localhost:3000
 | `npm run build` / `npm start` | Production build / server |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` (run `npx next typegen` first on a fresh clone) |
-| `npm run test:e2e` | Playwright tests (desktop 1440 + mobile 390). Starts `npm start` on port 3200 after `npm run build`. Use `npx playwright install chromium` or set `CHROME_PATH` to an installed Chrome |
+| `npm run test:e2e` | Playwright tests (desktop 1440 + mobile 390 projects, plus the `responsive` project: 7 routes × 15 widths from 320 to 3440, and touch, keyboard and reduced-motion tests in `e2e/interactions.spec.ts`). Starts `npm start` on port 3200 after `npm run build`. Use `npx playwright install chromium` or set `CHROME_PATH` to an installed Chrome |
 
 ## Routes
 `/`, `/projects`, `/projects/sripriya-roseland`, `/projects/sripriya-individual-house` (legacy `/projects/sripriya-RoseLand` and `/projects/sripriya-Individual-house` → 308), `/gallery`, `/about`, `/contact`, `/sitemap.xml`, `/robots.txt`.
@@ -37,4 +37,4 @@ See `docs/`: reference-analysis, original-site-audit, design-system, page-invent
 ## v2: full reference section set
 Home and both project pages render the complete reference landing-page sequence (`src/components/landing/LandingPage.tsx`), driven by `src/data/landing.ts`. Sample content and stock media are flagged `isDummy: true` (see `src/data/stock.ts`), and every item is listed in `docs/missing-content.md` under "Replace before launch". The Quick Enquiry popup auto-opens once per browser session (`sessionStorage` key `sp-quick-enquiry-seen`); e2e tests pre-set this flag except in the test titled `[fresh session]`.
 
-Checks: `npm run lint`, `npx next typegen && npm run typecheck`, `npm run build`, `CHROME_PATH=/usr/bin/google-chrome E2E_PORT=3100 npm run test:e2e` (61 tests).
+Checks: `npm run lint`, `npx next typegen && npm run typecheck`, `npm run build`, `CHROME_PATH=/usr/bin/google-chrome E2E_PORT=3100 npm run test:e2e` (186 pass + 1 skipped). See `docs/responsive-report.md`.

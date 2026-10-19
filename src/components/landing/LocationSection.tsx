@@ -53,7 +53,7 @@ export function LocationSection({ location }: { location: LocationContent }) {
         </Reveal>
 
         <div className="mt-[70px] lg:mt-[90px]" data-testid="landmarks">
-          <SplitTitle title={location.landmarksTitle} as="h3" className="text-center text-[26px] font-extrabold leading-tight text-navy sm:text-[32px]" />
+          <SplitTitle title={location.landmarksTitle} as="h3" className="text-center text-[clamp(1.5rem,1.4vw+1.1rem,2rem)] font-extrabold leading-tight text-navy" />
           <ul className="mt-9 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-[30px]">
             {location.landmarks.map((lm, i) => (
               <Reveal as="li" key={lm.name} delay={0.1 * (i + 1)}>

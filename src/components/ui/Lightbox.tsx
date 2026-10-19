@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { ImageAsset } from "@/types/content";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 interface LightboxProps {
   images: { image: ImageAsset; title?: string }[];
@@ -18,6 +19,7 @@ interface LightboxProps {
 export function Lightbox({ images, index, onClose, onIndexChange }: LightboxProps) {
   const open = index !== null;
   const closeRef = useRef<HTMLButtonElement>(null);
+  const trapRef = useFocusTrap<HTMLDivElement>(open, { initialFocus: false });
   useLockBodyScroll(open);
 
   const go = useCallback(
@@ -49,7 +51,8 @@ export function Lightbox({ images, index, onClose, onIndexChange }: LightboxProp
   return (
     <AnimatePresence>
       {open && current ? (
-        <motion.div
+        <m.div
+          ref={trapRef}
           role="dialog"
           aria-modal="true"
           aria-label={current.title ?? current.image.alt}
@@ -80,7 +83,7 @@ export function Lightbox({ images, index, onClose, onIndexChange }: LightboxProp
               </button>
             </>
           ) : null}
-          <motion.figure
+          <m.figure
             key={index}
             className="relative flex max-h-full w-full max-w-5xl flex-col items-center"
             initial={{ opacity: 0, scale: 0.96 }}
@@ -97,8 +100,8 @@ export function Lightbox({ images, index, onClose, onIndexChange }: LightboxProp
                 {(index ?? 0) + 1} / {images.length}
               </span>
             </figcaption>
-          </motion.figure>
-        </motion.div>
+          </m.figure>
+        </m.div>
       ) : null}
     </AnimatePresence>
   );

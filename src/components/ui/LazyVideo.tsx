@@ -15,13 +15,32 @@ interface LazyVideoProps {
 }
 
 /**
- * Lazy video: nothing but the poster is requested until the element is near the
+ * Lazy video: neither the poster nor the file is requested until the element is near the
  * viewport (`preload="none"` + IntersectionObserver). Ambient clips pause when
  * scrolled away and never autoplay under prefers-reduced-motion.
  */
 export function LazyVideo({ video, className, ambient = false, playing = false, controls = false, onEnded }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [near, setNear] = useState(false);
+  // Posters are fetched by the browser as soon as the attribute exists, even with
+  // preload="none", so they are only attached once the clip is within ~1.5 screens.
+  const [posterOn, setPosterOn] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPosterOn(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "900px 600px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -51,7 +70,9 @@ export function LazyVideo({ video, className, ambient = false, playing = false, 
     <video
       ref={ref}
       className={cn("h-full w-full object-cover", className)}
-      poster={video.poster}
+      poster={posterOn || near || playing ? video.poster : undefined}
+      data-poster={video.poster}
+      data-src={video.src}
       src={near || playing ? video.src : undefined}
       preload="none"
       muted

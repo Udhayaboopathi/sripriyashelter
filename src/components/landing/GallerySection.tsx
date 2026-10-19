@@ -71,7 +71,7 @@ export function GallerySection({ gallery }: { gallery: LandingContent["gallery"]
 
       <div className="container-site mt-[70px] text-center lg:mt-[90px]">
         <p className="text-[13px] font-bold uppercase tracking-[3px] text-brand">{gallery.updates.eyebrow}</p>
-        <h3 className="mt-3 font-heading text-[26px] font-extrabold leading-tight text-navy sm:text-[32px]">
+        <h3 className="mt-3 font-heading text-[clamp(1.5rem,1.4vw+1.1rem,2rem)] font-extrabold leading-tight text-navy">
           {gallery.updates.title} <span className="text-brand">({gallery.updates.date})</span>
         </h3>
         <p className="mx-auto mt-4 max-w-[690px] text-[15px] leading-[1.6] text-muted">{gallery.updates.description}</p>

@@ -6,6 +6,7 @@ import type { LandingContent } from "@/types/landing";
 import { LandingHeading } from "@/components/ui/SplitTitle";
 import { LazyVideo } from "@/components/ui/LazyVideo";
 import { cn } from "@/lib/cn";
+import { useSwipe } from "@/hooks/useSwipe";
 
 /**
  * Reference "Built Different" coverflow: active portrait card 360 × 640 in the
@@ -16,13 +17,27 @@ export function ShortsSlider({ shorts }: { shorts: LandingContent["shorts"] }) {
   const [index, setIndex] = useState(0);
   const count = items.length;
   const go = (d: number) => setIndex((i) => (i + d + count) % count);
+  const swipe = useSwipe(
+    () => go(1),
+    () => go(-1),
+  );
 
   return (
-    <section id="shorts" aria-roledescription="carousel" aria-label={`${shorts.title.lead} ${shorts.title.accent}`} className="bg-network-soft relative overflow-hidden bg-white py-[70px] lg:pb-[110px] lg:pt-[100px]">
+    <section
+      id="shorts"
+      aria-roledescription="carousel"
+      aria-label={`${shorts.title.lead} ${shorts.title.accent}`}
+      className="bg-network-soft relative overflow-hidden bg-white py-[70px] lg:pb-[110px] lg:pt-[100px]"
+    >
       <div className="container-site">
         <LandingHeading eyebrow={shorts.eyebrow} title={shorts.title} />
       </div>
-      <div className="relative mt-10 h-[460px] sm:h-[560px] lg:mt-[50px] lg:h-[640px]" data-testid="shorts-track">
+      <div
+        className="relative mt-10 h-[460px] sm:h-[560px] lg:mt-[50px] lg:h-[640px] touch-pan-y select-none"
+        data-testid="shorts-track"
+        data-index={index}
+        {...swipe}
+      >
         {items.map((item, i) => {
           let offset = i - index;
           if (offset > count / 2) offset -= count;
@@ -47,17 +62,35 @@ export function ShortsSlider({ shorts }: { shorts: LandingContent["shorts"] }) {
             >
               <LazyVideo video={item} ambient={active} />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-ink/90 to-transparent p-5 pt-16">
-                <p className="font-heading text-[18px] font-bold text-white">{item.title}</p>
+                <p className="font-heading text-[18px] font-bold text-white">
+                  {item.title}
+                </p>
               </div>
             </div>
           );
         })}
       </div>
-      <div className="mt-8 flex items-center justify-center gap-5">
-        <button type="button" onClick={() => go(-1)} aria-label="Previous clip" className="grid size-[50px] place-items-center rounded-full bg-navy text-white transition hover:bg-brand">
+      <div className="mt-8 flex items-center justify-center gap-3 xs:gap-5">
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          aria-label="Previous clip"
+          className="grid size-[50px] shrink-0 place-items-center rounded-full bg-navy text-white transition hover:bg-brand"
+        >
           <ChevronLeft className="size-5" />
         </button>
-        <div className="flex items-center gap-0.5" role="tablist" aria-label="Choose clip">
+        <p
+          className="min-w-[4.5rem] text-center font-heading text-[16px] font-bold text-navy xs:hidden"
+          aria-live="polite"
+          data-testid="shorts-counter"
+        >
+          {index + 1} / {count}
+        </p>
+        <div
+          className="hidden items-center gap-0 xs:flex"
+          role="tablist"
+          aria-label="Choose clip"
+        >
           {items.map((item, i) => (
             <button
               key={item.src}
@@ -66,13 +99,26 @@ export function ShortsSlider({ shorts }: { shorts: LandingContent["shorts"] }) {
               aria-selected={i === index}
               aria-label={`Clip ${i + 1}: ${item.title}`}
               onClick={() => setIndex(i)}
-              className="group grid h-6 min-w-6 place-items-center"
+              className="group grid h-11 min-w-11 place-items-center"
             >
-              <span aria-hidden className={cn("block h-2.5 rounded-full transition-all", i === index ? "w-8 bg-brand" : "w-2.5 bg-navy/25 group-hover:bg-navy/50")} />
+              <span
+                aria-hidden
+                className={cn(
+                  "block h-2.5 rounded-full transition-all",
+                  i === index
+                    ? "w-8 bg-brand"
+                    : "w-2.5 bg-navy/25 group-hover:bg-navy/50",
+                )}
+              />
             </button>
           ))}
         </div>
-        <button type="button" onClick={() => go(1)} aria-label="Next clip" className="grid size-[50px] place-items-center rounded-full bg-navy text-white transition hover:bg-brand">
+        <button
+          type="button"
+          onClick={() => go(1)}
+          aria-label="Next clip"
+          className="grid size-[50px] shrink-0 place-items-center rounded-full bg-navy text-white transition hover:bg-brand"
+        >
           <ChevronRight className="size-5" />
         </button>
       </div>

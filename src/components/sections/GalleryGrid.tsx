@@ -18,7 +18,7 @@ export function GalleryGrid({ items, categories }: { items: GalleryItem[]; categ
     <div>
       <div role="group" aria-label="Filter gallery" className="mx-auto flex w-fit flex-wrap justify-center gap-2 rounded-full bg-white p-2 shadow-[var(--shadow-card)]">
         {categories.map((c) => (
-          <button key={c} type="button" aria-pressed={category === c} onClick={() => setCategory(c)} className={cn("rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300", category === c ? "bg-brand text-white shadow-[0_8px_18px_hsl(12_98%_53%/0.3)]" : "text-navy hover:bg-accent")}>
+          <button key={c} type="button" aria-pressed={category === c} onClick={() => setCategory(c)} className={cn("min-h-11 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300", category === c ? "bg-brand text-white shadow-[0_8px_18px_hsl(12_98%_53%/0.3)]" : "text-navy hover:bg-accent")}>
             {c}
           </button>
         ))}

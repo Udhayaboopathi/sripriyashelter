@@ -17,10 +17,10 @@ export function ContactSplit({ contact }: { contact: LandingContent["contact"] }
             <Image src={contact.image.src} alt={contact.image.alt} fill sizes="550px" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-ink/80 via-transparent to-transparent" />
             <div className="absolute inset-x-6 bottom-6 flex flex-col gap-2 text-white">
-              <a href={site.phone.href} className="inline-flex items-center gap-2 text-[17px] font-semibold hover:text-brand">
+              <a href={site.phone.href} className="inline-flex min-h-11 items-center gap-2 text-[17px] font-semibold hover:text-brand">
                 <Phone aria-hidden className="size-5 text-brand" /> {site.phone.display}
               </a>
-              <a href={site.email.href} className="inline-flex items-center gap-2 text-[15px] hover:text-brand">
+              <a href={site.email.href} className="inline-flex min-h-11 items-center gap-2 text-[15px] hover:text-brand">
                 <Mail aria-hidden className="size-5 text-brand" /> {site.email.display}
               </a>
             </div>

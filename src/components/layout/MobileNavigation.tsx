@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { Mail, MapPin, Phone, X } from "lucide-react";
 import { mainNavigation } from "@/data/navigation";
 import { site } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
 import { InstagramIcon } from "@/components/ui/SocialIcon";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { cn } from "@/lib/cn";
 
@@ -23,6 +24,7 @@ export function MobileNavigation({ open, onClose, pathname }: Props) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const close = useCallback(() => onClose(), [onClose]);
   useEscapeKey(open, close);
+  const trapRef = useFocusTrap<HTMLElement>(open, { initialFocus: false });
   useLockBodyScroll(open);
 
   useEffect(() => {
@@ -33,8 +35,9 @@ export function MobileNavigation({ open, onClose, pathname }: Props) {
     <AnimatePresence>
       {open ? (
         <div className="fixed inset-0 z-[80]" id="site-offcanvas">
-          <motion.div className="absolute inset-0 bg-navy-ink/60 backdrop-blur-[2px]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={close} />
-          <motion.aside
+          <m.div className="absolute inset-0 bg-navy-ink/60 backdrop-blur-[2px]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={close} />
+          <m.aside
+            ref={trapRef}
             role="dialog"
             aria-modal="true"
             aria-label="Site menu"
@@ -56,11 +59,11 @@ export function MobileNavigation({ open, onClose, pathname }: Props) {
                 {mainNavigation.map((item, i) => {
                   const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                   return (
-                    <motion.li key={item.href} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.05 }} className="border-b border-line">
+                    <m.li key={item.href} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.05 }} className="border-b border-line">
                       <Link href={item.href} onClick={close} aria-current={active ? "page" : undefined} className={cn("block py-4 font-heading text-[18px] transition-colors hover:text-brand", active ? "text-brand" : "text-black")}>
                         {item.label}
                       </Link>
-                    </motion.li>
+                    </m.li>
                   );
                 })}
               </ul>
@@ -88,7 +91,7 @@ export function MobileNavigation({ open, onClose, pathname }: Props) {
                 ))}
               </div>
             </div>
-          </motion.aside>
+          </m.aside>
         </div>
       ) : null}
     </AnimatePresence>

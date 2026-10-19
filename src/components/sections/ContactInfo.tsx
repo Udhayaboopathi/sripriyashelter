@@ -6,8 +6,8 @@ import { Reveal } from "@/components/ui/Reveal";
 export function ContactInfo({ title, description }: { title: string; description: string }) {
   const cards = [
     { title: "Visit Us", Icon: MapPin, body: <>{site.address.lines.map((l) => <span key={l} className="block">{l}</span>)}<span className="block">({site.address.landmark})</span></> },
-    { title: "Call Us", Icon: Phone, body: <a href={site.phone.href} className="hover:text-brand">{site.phone.display}</a> },
-    { title: "Email Us", Icon: Mail, body: <a href={site.email.href} className="break-all hover:text-brand">{site.email.display}</a> },
+    { title: "Call Us", Icon: Phone, body: <a href={site.phone.href} className="inline-flex min-h-11 items-center hover:text-brand">{site.phone.display}</a> },
+    { title: "Email Us", Icon: Mail, body: <a href={site.email.href} className="inline-flex min-h-11 items-center break-all hover:text-brand">{site.email.display}</a> },
     { title: "Working Hours", Icon: Clock, body: <>{site.hours.map((h) => <span key={h} className="block">{h}</span>)}</> },
   ];
   return (

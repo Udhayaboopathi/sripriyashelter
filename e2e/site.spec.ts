@@ -288,10 +288,15 @@ test.describe("reference landing sections", () => {
 
     const shorts = page.locator("#shorts");
     await shorts.scrollIntoViewIfNeeded();
-    const dots = shorts.getByRole("tablist", { name: "Choose clip" });
-    await expect(dots.getByRole("tab").first()).toHaveAttribute("aria-selected", "true");
+    const track = page.getByTestId("shorts-track");
+    await expect(track).toHaveAttribute("data-index", "0");
     await shorts.getByRole("button", { name: "Next clip" }).click();
-    await expect(dots.getByRole("tab").nth(1)).toHaveAttribute("aria-selected", "true");
+    await expect(track).toHaveAttribute("data-index", "1");
+    if ((page.viewportSize()?.width ?? 0) >= 430) {
+      await expect(shorts.getByRole("tablist", { name: "Choose clip" }).getByRole("tab").nth(1)).toHaveAttribute("aria-selected", "true");
+    } else {
+      await expect(page.getByTestId("shorts-counter")).toHaveText(/2 \/ \d/);
+    }
 
     const band = page.locator("#walkthrough");
     await band.scrollIntoViewIfNeeded();
@@ -305,9 +310,10 @@ test.describe("reference landing sections", () => {
     await page.goto("/projects/sripriya-roseland");
     const vids = page.getByTestId("landmarks").locator("video");
     await expect(vids).toHaveCount(4);
-    await expect(vids.first()).toHaveAttribute("poster", /\/images\/stock\/posters\//);
+    await expect(vids.first()).toHaveAttribute("data-poster", /\/images\/stock\/posters\//);
     await expect(vids.first()).not.toHaveAttribute("src", /.+/);
     await page.getByTestId("landmarks").scrollIntoViewIfNeeded();
+    await expect(vids.first()).toHaveAttribute("poster", /\/images\/stock\/posters\//);
     await expect(vids.first()).toHaveAttribute("src", /\/videos\/landmark-/);
   });
 

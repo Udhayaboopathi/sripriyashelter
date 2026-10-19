@@ -23,7 +23,7 @@ export function ProjectsExplorer({ projects, filters }: { projects: Project[]; f
               type="button"
               onClick={() => setFilter(f)}
               aria-pressed={filter === f}
-              className={cn("rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300", filter === f ? "bg-brand text-white shadow-[0_8px_18px_hsl(12_98%_53%/0.3)]" : "text-navy hover:bg-accent")}
+              className={cn("min-h-11 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300", filter === f ? "bg-brand text-white shadow-[0_8px_18px_hsl(12_98%_53%/0.3)]" : "text-navy hover:bg-accent")}
             >
               {f}
             </button>

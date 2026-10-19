@@ -38,7 +38,7 @@ export function SectionHeading({ eyebrow, title, description, align = "center", 
       <Reveal delay={0.1}>
         <Tag
           className={cn(
-            "font-heading text-[32px] font-bold leading-[1.2] sm:text-[40px] lg:text-[48px]",
+            "font-heading text-[clamp(1.75rem,2.6vw+1.1rem,3rem)] font-bold leading-[1.2]",
             tone === "light" ? "text-navy" : "text-white",
             align === "center" && "mx-auto max-w-3xl",
           )}

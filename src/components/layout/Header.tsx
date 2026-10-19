@@ -50,7 +50,7 @@ export function Header() {
                       href={item.href}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "relative px-3 py-2 font-heading text-[18px] transition-colors duration-300 after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-brand after:transition-transform after:duration-300 hover:text-brand hover:after:scale-x-100",
+                        "relative inline-flex min-h-11 items-center px-3 py-2 font-heading text-[18px] transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-brand after:transition-transform after:duration-300 hover:text-brand hover:after:scale-x-100",
                         active ? "text-brand after:scale-x-100" : "text-black",
                       )}
                     >
@@ -62,7 +62,7 @@ export function Header() {
             </ul>
           </nav>
           <div className="flex items-center gap-2.5 sm:gap-5">
-            <a href={site.phone.href} className="hidden items-center gap-2 text-sm font-medium text-navy transition hover:text-brand xl:inline-flex">
+            <a href={site.phone.href} className="hidden min-h-11 items-center gap-2 text-sm font-medium text-navy transition hover:text-brand xl:inline-flex">
               <Phone aria-hidden className="size-4" />
               {site.phone.display}
             </a>
@@ -70,10 +70,11 @@ export function Header() {
               type="button"
               onClick={() => openBrochure({ project: currentProject?.title })}
               data-testid="header-brochure"
-              className="inline-flex h-[40px] items-center gap-2 whitespace-nowrap rounded-full bg-brand px-3.5 text-[11px] font-semibold uppercase tracking-wide text-white shadow-[0_0_0_5px_hsl(12_98%_53%/0.2)] transition hover:bg-brand-strong hover:shadow-[0_0_0_8px_hsl(12_98%_53%/0.18)] sm:h-[46px] sm:px-5 sm:text-[13px]"
+              aria-label="Brochure"
+              className="inline-flex h-11 min-w-11 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand px-3 text-[11px] xs:px-3.5 font-semibold uppercase tracking-wide text-white shadow-[0_0_0_5px_hsl(12_98%_53%/0.2)] transition hover:bg-brand-strong hover:shadow-[0_0_0_8px_hsl(12_98%_53%/0.18)] sm:h-[46px] sm:px-5 sm:text-[13px]"
             >
               <Download aria-hidden className="size-4" />
-              Brochure
+              <span className="max-[359px]:sr-only">Brochure</span>
             </button>
             <button
               type="button"
@@ -81,7 +82,7 @@ export function Header() {
               aria-expanded={menuOpen}
               aria-controls="site-offcanvas"
               onClick={() => setMenuOpen(true)}
-              className="group grid size-10 place-items-center"
+              className="group grid size-11 place-items-center"
               data-testid="menu-toggle"
             >
               <span aria-hidden className="flex w-7 flex-col items-end gap-[6px]">

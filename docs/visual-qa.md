@@ -41,3 +41,18 @@ Auto-opening Quick Enquiry popup (once per session) · brochure popup from the h
 | Contact | mobile | 89 | 96 | 100 | 100 | 3.7 s | 0 | 40 ms |
 
 The only remaining a11y failure is `color-contrast`: white or small text on the brand orange #fd4112 is 3.53:1. That is a brand decision, carried over and documented in missing-content.md. Mobile LCP is the hero photograph under Lighthouse's simulated slow 4G.
+
+## Responsive pass (19 Oct 2026)
+Mobile Lighthouse after the pass:
+
+| Page | Perf |
+|---|---|
+| home | 90 |
+| RoseLand | 92 |
+| Individual House | 88 |
+| projects | 94 |
+| gallery | 90 |
+| about | 92 |
+| contact | 93 |
+
+Desktop is 99–100. Details, REA comparisons and screenshots are in `responsive-report.md`.

@@ -40,7 +40,7 @@ export function Footer() {
             <p className="mt-6 max-w-sm text-[15px] leading-[1.8]">{site.description}</p>
             <div className="mt-6 flex gap-3">
               {site.social.map((s) => (
-                <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`${site.name} on ${s.label}`} className="grid size-10 place-items-center rounded-full bg-white/10 text-white transition hover:bg-brand">
+                <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`${site.name} on ${s.label}`} className="grid size-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-brand">
                   <InstagramIcon className="size-[18px]" />
                 </a>
               ))}
@@ -48,10 +48,10 @@ export function Footer() {
           </div>
           <nav aria-label="Quick links">
             <ColumnTitle>Quick Links</ColumnTitle>
-            <ul className="mt-6 space-y-3.5">
+            <ul className="mt-5 space-y-0.5">
               {footerQuickLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="group inline-flex items-center gap-2 text-[15px] transition hover:text-white">
+                  <Link href={l.href} className="group inline-flex min-h-11 items-center gap-2 text-[15px] transition hover:text-white">
                     <ChevronRight aria-hidden className="size-4 text-brand transition-transform group-hover:translate-x-1" />
                     {l.label}
                   </Link>
@@ -61,10 +61,10 @@ export function Footer() {
           </nav>
           <nav aria-label="Our projects">
             <ColumnTitle>Our Projects</ColumnTitle>
-            <ul className="mt-6 space-y-3.5">
+            <ul className="mt-5 space-y-0.5">
               {projects.map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/projects/${p.slug}`} className="group inline-flex items-center gap-2 text-[15px] transition hover:text-white">
+                  <Link href={`/projects/${p.slug}`} className="group inline-flex min-h-11 items-center gap-2 text-[15px] transition hover:text-white">
                     <ChevronRight aria-hidden className="size-4 text-brand transition-transform group-hover:translate-x-1" />
                     {p.title}
                   </Link>
@@ -84,11 +84,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <span className="grid size-10 shrink-0 place-items-center rounded-full bg-brand/15 text-brand"><Phone aria-hidden className="size-4" /></span>
-                <a href={site.phone.href} className="hover:text-white">{site.phone.display}</a>
+                <a href={site.phone.href} className="inline-flex min-h-11 items-center hover:text-white">{site.phone.display}</a>
               </li>
               <li className="flex items-center gap-4">
                 <span className="grid size-10 shrink-0 place-items-center rounded-full bg-brand/15 text-brand"><Mail aria-hidden className="size-4" /></span>
-                <a href={site.email.href} className="break-all hover:text-white">{site.email.display}</a>
+                <a href={site.email.href} className="inline-flex min-h-11 items-center break-all hover:text-white">{site.email.display}</a>
               </li>
             </ul>
           </div>
@@ -99,7 +99,7 @@ export function Footer() {
           </p>
           <p className="inline-flex items-center gap-1.5">
             by
-            <a href={site.credit.href} target="_blank" rel="noopener noreferrer" className="font-medium text-white underline-offset-4 hover:underline">{site.credit.label}</a>
+            <a href={site.credit.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center font-medium text-white underline-offset-4 hover:underline">{site.credit.label}</a>
             <Heart aria-hidden className="size-3.5 fill-brand text-brand" />
           </p>
         </div>

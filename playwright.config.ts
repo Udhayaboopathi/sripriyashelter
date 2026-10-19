@@ -16,8 +16,10 @@ export default defineConfig({
     launchOptions: executablePath ? { executablePath } : undefined,
   },
   projects: [
-    { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
-    { name: "mobile", use: { ...devices["Pixel 7"], viewport: { width: 390, height: 844 } } },
+    { name: "desktop", testIgnore: /responsive\.spec/, use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
+    { name: "mobile", testIgnore: /(responsive|interactions)\.spec/, use: { ...devices["Pixel 7"], viewport: { width: 390, height: 844 } } },
+    // Route × width matrix (320 → 3440); viewports are set per test.
+    { name: "responsive", testMatch: /responsive\.spec/, use: { ...devices["Desktop Chrome"] } },
   ],
   webServer: {
     command: `npm run start -- -p ${PORT}`,

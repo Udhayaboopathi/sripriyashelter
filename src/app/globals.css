@@ -298,3 +298,17 @@ h4 {
     --shorts-step: 400px;
   }
 }
+
+/* Large and ultrawide displays: scale the whole composition proportionally instead of
+   leaving a narrow 1320px column with small text. Full-bleed sections stay full-bleed
+   (they are width:100%); centred containers simply grow with the zoom factor. */
+@media (min-width: 2400px) {
+  html {
+    zoom: 1.25;
+  }
+}
+@media (min-width: 3200px) {
+  html {
+    zoom: 1.5;
+  }
+}

@@ -44,7 +44,7 @@ export function OverviewSection({ overview, project }: { overview: OverviewConte
             <p className="inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[3px] text-[hsl(12_98%_65%)]">
               <Sparkles aria-hidden className="size-4" /> {overview.eyebrow}
             </p>
-            <SplitTitle title={overview.title} className="mt-4 text-[32px] font-extrabold leading-[1.15] text-white sm:text-[40px] lg:text-[44.8px]" />
+            <SplitTitle title={overview.title} className="mt-4 text-[clamp(1.75rem,2.2vw+1.2rem,2.8rem)] font-extrabold leading-[1.15] text-white" />
             {overview.price ? (
               <div className="mt-7 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-y border-white/10 py-5">
                 <span className="font-heading text-[34px] font-extrabold text-[#ffc94d]">{overview.price.value}</span>

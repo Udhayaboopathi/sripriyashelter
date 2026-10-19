@@ -24,14 +24,14 @@ export function PageHero({ eyebrow, title, subtitle, image, crumbs }: PageHeroPr
             {crumbs.map((c, i) => (
               <li key={c.label} className="flex items-center gap-1.5">
                 {i > 0 ? <ChevronRight aria-hidden className="size-3.5" /> : null}
-                {c.href ? <Link href={c.href} className="hover:text-white">{c.label}</Link> : <span aria-current="page" className="text-white">{c.label}</span>}
+                {c.href ? <Link href={c.href} className="inline-flex min-h-11 min-w-11 items-center hover:text-white">{c.label}</Link> : <span aria-current="page" className="text-white">{c.label}</span>}
               </li>
             ))}
           </ol>
         </nav>
         <div className="max-w-3xl motion-safe:animate-[fadeUp_0.8s_var(--ease-standard)_both]">
           <Eyebrow tone="dark">{eyebrow}</Eyebrow>
-          <h1 className="mt-5 font-heading text-[38px] font-bold leading-[1.1] text-white sm:text-[56px]">{title}</h1>
+          <h1 className="mt-5 font-heading text-[clamp(2rem,4vw+1.25rem,3.5rem)] font-bold leading-[1.1] text-white">{title}</h1>
           {subtitle ? <p className="mt-4 text-[17px] text-white/85 sm:text-[19px]">{subtitle}</p> : null}
         </div>
       </div>
